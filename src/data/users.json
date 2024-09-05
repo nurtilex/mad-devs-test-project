@@ -1,0 +1,57 @@
+{
+  "header": [
+    {
+      "id": "col1",
+      "type": "string",
+      "caption": "Name",
+      "align": "left"
+    },
+    {
+      "id": "col2",
+      "type": "float",
+      "caption": "Score",
+      "align": "right"
+    },
+    {
+      "id": "col3",
+      "type": "boolean",
+      "caption": "Active",
+      "align": "center"
+    },
+    {
+      "id": "col4",
+      "type": "string",
+      "caption": "Department",
+      "align": "left"
+    },
+    {
+      "id": "col5",
+      "type": "float",
+      "caption": "Salary",
+      "align": "right"
+    }
+  ],
+  "data": [
+    ["Alice", { "data": 85.5, "color": "green" }, true, "HR", 5000.75],
+    ["Bob", { "data": 90.0, "color": "blue" }, false, "IT", 6200.5],
+    ["Charlie", 78.4, true, "Finance", 4500.0],
+    ["Diana", { "data": 92.3, "color": "purple" }, false, "Marketing", 4800.25],
+    ["Eve", { "data": 88.0, "color": "red" }, true, "Sales", 5100.5],
+    ["Frank", 72.0, false, "HR", { "data": 4200.3, "color": "yellow" }],
+    ["Grace", { "data": 91.7, "color": "orange" }, true, "IT", 6300.0],
+    ["Henry", 79.5, false, "Finance", { "data": 4500.75, "color": "blue" }],
+    ["Ivy", { "data": 84.0, "color": "green" }, true, "Marketing", 4700.2],
+    ["Jack", 87.5, false, "Sales", 5000.5],
+    ["Ken", { "data": 75.8, "color": "cyan" }, true, "HR", 4100.3],
+    ["Lily", { "data": 93.0, "color": "purple" }, false, "IT", 6500.8],
+    ["Mia", 81.2, true, "Finance", 4600.0],
+    [
+      "Nick",
+      { "data": 88.4, "color": "red" },
+      false,
+      "Marketing",
+      { "data": 4900.3, "color": "orange" }
+    ],
+    ["Oscar", 79.0, true, "Sales", 5050.9]
+  ]
+}

@@ -1,85 +1,84 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { computed, ref } from 'vue';
+
+import { getDataSource, getColumns } from '@/lib/parse';
+import { PROJECTS_LIST } from '@/data';
+
+const current = ref(PROJECTS_LIST[0]);
+
+const columns = computed(() => getColumns(current.value?.data.header));
+const dataSource = computed(() => {
+  const data = current.value?.data.data;
+  const headers = current.value?.data.header;
+
+  return getDataSource(data, headers);
+});
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+  <main>
+    <div class="dropdown-wrapper">
+      <a-dropdown :trigger="['click']">
+        <a-button class="dropdown-label" @click.prevent>
+          {{ current?.label }}
+        </a-button>
+        <template #overlay>
+          <a-menu>
+            <a-menu-item
+              v-for="project in PROJECTS_LIST"
+              @click="current = project"
+              :key="project.id"
+              >{{ project.label }}</a-menu-item
+            >
+          </a-menu>
+        </template>
+      </a-dropdown>
     </div>
-  </header>
-
-  <RouterView />
+    <a-table
+      :dataSource="dataSource"
+      :columns="columns"
+      :pagination="false"
+      :scroll="{ x: 1000 }"
+    />
+  </main>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+<style lang="scss">
+:root {
+  font-size: 16px;
+
+  @media screen and (max-width: 1200px) {
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 700px) {
+    font-size: 10px;
+  }
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
+body {
+  margin: 0;
+  box-sizing: border-box;
+  background: #a7ddc6;
   width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
+  padding: 5rem 2rem 2rem;
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
+  main {
     display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+    flex-direction: column;
+    gap: 2rem;
+    min-height: 60vh;
+    width: 100%;
+    max-width: 1440px;
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
+    .dropdown-wrapper {
+      min-width: 100px;
+      max-width: 200px;
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
+      .dropdown-label {
+        width: 100%;
+      }
+    }
   }
 }
 </style>

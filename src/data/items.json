@@ -1,0 +1,51 @@
+{
+  "header": [
+    {
+      "id": "col1",
+      "type": "string",
+      "caption": "Product",
+      "align": "left"
+    },
+    {
+      "id": "col2",
+      "type": "integer",
+      "caption": "Price",
+      "align": "right"
+    },
+    {
+      "id": "col3",
+      "type": "boolean",
+      "caption": "In Stock",
+      "align": "center"
+    },
+    {
+      "id": "col4",
+      "type": "string",
+      "caption": "Category",
+      "align": "left"
+    },
+    {
+      "id": "col5",
+      "type": "float",
+      "caption": "Discount",
+      "align": "right"
+    }
+  ],
+  "data": [
+    ["Laptop", { "data": 999, "color": "blue" }, true, "Electronics", 10.5],
+    ["Headphones", 199.49, false, "Accessories", { "data": 15.0, "color": "green" }],
+    ["Keyboard", { "data": 49.99, "color": "gray" }, true, "Accessories", 5.0],
+    ["Mouse", 25.99, true, "Accessories", { "data": 8.0, "color": "yellow" }],
+    ["Monitor", { "data": 299.99, "color": "purple" }, false, "Electronics", 20.0],
+    ["Chair", 89.99, true, "Furniture", { "data": 12.0, "color": "brown" }],
+    ["Desk", { "data": 149.99, "color": "red" }, false, "Furniture", 18.0],
+    ["Smartphone", 799.49, true, "Electronics", 25.0],
+    ["Tablet", { "data": 499.99, "color": "cyan" }, false, "Electronics", 30.0],
+    ["Pen", 2.99, true, "Stationery", { "data": 2.0, "color": "green" }],
+    ["Notebook", { "data": 5.49, "color": "yellow" }, true, "Stationery", 1.5],
+    ["Backpack", 39.99, false, "Accessories", 10.0],
+    ["Water Bottle", { "data": 12.99, "color": "blue" }, true, "Accessories", 5.5],
+    ["Lamp", 19.99, false, "Furniture", 7.0],
+    ["Coffee Machine", { "data": 249.99, "color": "black" }, true, "Appliances", 22.0]
+  ]
+}
